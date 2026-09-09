@@ -1,0 +1,303 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  border-radius: 12px;
+}
+
+.header {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  margin: 0 0 20px 0;
+  color: #2d3748;
+  font-size: 28px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.button {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error {
+  background: #fed7d7;
+  color: #742a2a;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border-left: 4px solid #fc8181;
+}
+
+.tabs {
+  display: flex;
+  gap: 0;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.tab {
+  flex: 1;
+  padding: 15px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #718096;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+}
+
+.tab:hover {
+  color: #667eea;
+  background: rgba(102, 126, 234, 0.05);
+}
+
+.tab.active {
+  color: #667eea;
+  border-bottom-color: #667eea;
+  background: rgba(102, 126, 234, 0.05);
+}
+
+.content {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #2d3748;
+  font-size: 20px;
+}
+
+.trendList {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.trendItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+  transition: all 0.3s ease;
+}
+
+.trendItem:hover {
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+}
+
+.rank {
+  font-weight: bold;
+  color: #667eea;
+  font-size: 16px;
+  min-width: 30px;
+}
+
+.name {
+  color: #2d3748;
+  font-weight: 500;
+  flex: 1;
+}
+
+.sentimentGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.sentimentCard {
+  padding: 20px;
+  background: rgba(245, 247, 250, 0.8);
+  border-radius: 8px;
+  border: 2px solid #e2e8f0;
+}
+
+.sentimentLabel {
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #2d3748;
+  font-size: 14px;
+}
+
+.sentimentBar {
+  background: #e2e8f0;
+  height: 24px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.bar {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.bar.positive {
+  background: linear-gradient(90deg, #48bb78, #38a169);
+}
+
+.bar.neutral {
+  background: linear-gradient(90deg, #ed8936, #dd6b20);
+}
+
+.bar.negative {
+  background: linear-gradient(90deg, #f56565, #e53e3e);
+}
+
+.sentimentValue {
+  text-align: right;
+  font-size: 12px;
+  font-weight: 600;
+  color: #718096;
+}
+
+.recommendationsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.recommendationCard {
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.recommendationCard h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #2d3748;
+  font-size: 16px;
+}
+
+.recommendationCard p {
+  margin: 0;
+  color: #4a5568;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.rawData {
+  background: #1a202c;
+  color: #68d391;
+  padding: 20px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 12px;
+  line-height: 1.5;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.footer {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+  text-align: center;
+  color: #718096;
+  font-size: 13px;
+}
+
+.footer p {
+  margin: 5px 0;
+}
+
+.loadingSpinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .header {
+    padding: 15px;
+  }
+
+  .header h1 {
+    font-size: 20px;
+  }
+
+  .controls {
+    flex-direction: column;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .content {
+    padding: 15px;
+  }
+
+  .trendList {
+    grid-template-columns: 1fr;
+  }
+
+  .tabs {
+    flex-wrap: wrap;
+  }
+
+  .tab {
+    flex: 1 1 50%;
+  }
+}

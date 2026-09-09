@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>Social Media Trend Agent</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📱</text></svg>" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        background: #0f172a;
+        color: #e2e8f0;
+        line-height: 1.6;
+      }
+
+      #trends-dashboard {
+        min-height: 100vh;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="trends-dashboard"></div>
+    <script type="module">
+      import { TrendDashboard } from './src/ui/trend-dashboard.js'
+      new TrendDashboard('#trends-dashboard')
+    </script>
+  </body>
+</html>

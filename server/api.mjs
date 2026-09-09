@@ -11,6 +11,7 @@ import {
   openThread as harnessOpenThread,
   scanThreads,
 } from './scan.mjs'
+import { SocialMediaTrendAgent } from './agents/socialMediaTrendAgent.mjs'
 
 const here = path.dirname(fileURLToPath(import.meta.url))
 const DATA_DIR = process.env.BOT_CROSSING_DATA || path.join(here, '..', 'data')
@@ -422,6 +423,52 @@ export async function apiMiddleware(req, res, next) {
       }
       const shown = await present(await harnessNewSession(harness || (await defaultHarness()), dir))
       return send(res, shown.ok ? 200 : 400, shown)
+    }
+
+    // Trends API
+    if (url.pathname === '/api/trends/report' && req.method === 'GET') {
+      const agent = new SocialMediaTrendAgent()
+      const report = await agent.generateTrendReport()
+      return send(res, 200, report)
+    }
+
+    if (url.pathname.match(/^\/api\/trends\/report\/[\w-]+$/) && req.method === 'GET') {
+      const platform = url.pathname.split('/').pop()
+      const agent = new SocialMediaTrendAgent()
+      const report = await agent.generateTrendReport([platform])
+      return send(res, 200, report)
+    }
+
+    if (url.pathname === '/api/trends/analyze' && req.method === 'POST') {
+      const { trendData } = await readJsonBody(req)
+      if (!trendData) return send(res, 400, { error: 'trendData is required' })
+      const agent = new SocialMediaTrendAgent()
+      const analysis = await agent.analyzeTrends(trendData)
+      return send(res, 200, analysis)
+    }
+
+    if (url.pathname.match(/^\/api\/trends\/predict\/(.+)$/) && req.method === 'GET') {
+      const trendName = decodeURIComponent(url.pathname.split('/').pop())
+      const agent = new SocialMediaTrendAgent()
+      const prediction = await agent.predictTrendVelocity(trendName)
+      return send(res, 200, prediction)
+    }
+
+    if (url.pathname === '/api/trends/history' && req.method === 'GET') {
+      const days = parseInt(url.searchParams.get('days')) || 7
+      const agent = new SocialMediaTrendAgent()
+      const history = await agent.getHistoricalAnalysis(days)
+      return send(res, 200, history)
+    }
+
+    if (url.pathname === '/api/trends/recommendations' && req.method === 'GET') {
+      const agent = new SocialMediaTrendAgent()
+      const report = await agent.generateTrendReport()
+      return send(res, 200, {
+        timestamp: report.timestamp,
+        analysis: report.analysis,
+        recommendations: report.recommendations,
+      })
     }
 
     return send(res, 404, { error: 'Unknown endpoint' })

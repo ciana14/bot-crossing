@@ -31,16 +31,23 @@
     "win32",
     "linux"
   ],
+  "bin": {
+    "trend-agent": "./cli/trend-agent.mjs"
+  },
   "scripts": {
     "dev": "npm run assets --silent && vite",
     "build": "npm run assets --silent && vite build",
     "start": "vite build && node server/serve.mjs",
     "serve": "node server/serve.mjs",
     "assets": "node tools/build-assets.mjs",
-    "test": "node --test \"test/**/*.test.mjs\""
+    "test": "node --test \"test/**/*.test.mjs\"",
+    "trend-agent": "node cli/trend-agent.mjs"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.24.0",
     "@mdi/js": "^7.4.47",
+    "chalk": "^5.3.0",
+    "express": "^4.18.2",
     "three": "^0.185.0"
   },
   "devDependencies": {

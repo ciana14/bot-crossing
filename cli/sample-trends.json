@@ -1,0 +1,64 @@
+{
+  "twitter": [
+    {
+      "hashtag": "#ClaudeAI",
+      "volume": 125000,
+      "growth": 45,
+      "sentiment": 0.85
+    },
+    {
+      "hashtag": "#WebDevelopment",
+      "volume": 89000,
+      "growth": 23,
+      "sentiment": 0.78
+    },
+    {
+      "hashtag": "#OpenSource",
+      "volume": 156000,
+      "growth": 12,
+      "sentiment": 0.81
+    }
+  ],
+  "tiktok": [
+    {
+      "sound": "ai_coding_beats",
+      "views": 5200000,
+      "growth": 156,
+      "sentiment": 0.88
+    },
+    {
+      "sound": "developer_life",
+      "views": 3100000,
+      "growth": 89,
+      "sentiment": 0.85
+    }
+  ],
+  "instagram": [
+    {
+      "hashtag": "#TechStyle",
+      "posts": 450000,
+      "engagement": 8.5,
+      "sentiment": 0.81
+    },
+    {
+      "hashtag": "#DevCommunity",
+      "posts": 320000,
+      "engagement": 7.2,
+      "sentiment": 0.87
+    }
+  ],
+  "youtube": [
+    {
+      "topic": "AI Programming Tutorials",
+      "avgViews": 450000,
+      "growth": 78,
+      "sentiment": 0.89
+    },
+    {
+      "topic": "Web Development Tips",
+      "avgViews": 280000,
+      "growth": 34,
+      "sentiment": 0.82
+    }
+  ]
+}
